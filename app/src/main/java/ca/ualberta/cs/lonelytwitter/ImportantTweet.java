@@ -5,6 +5,13 @@ package ca.ualberta.cs.lonelytwitter;
  */
 import java.util.Date;
 
+/**
+ * Reoresebts a tweet
+ *
+ * @author xf4
+ * @version 1.0
+ */
+
 public class ImportantTweet extends Tweet {
     ImportantTweet(String message){
         super(message);

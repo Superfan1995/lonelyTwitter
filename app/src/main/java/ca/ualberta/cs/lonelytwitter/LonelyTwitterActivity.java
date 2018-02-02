@@ -1,3 +1,13 @@
+/*
+ *  Copyright  © 2018 Team X, CMPUT301, University of Alberta - All right REserved.
+ *  You may use, distribute or modify this code under terms and conditions of Code of
+ * Students  Behaviors at
+ *  University of Alberta.
+ *  You can find a cope of the license in this project. Otherwise, please contact
+ * xf4@ualberta.ca
+ * /
+ */
+
 package ca.ualberta.cs.lonelytwitter;
 
 import java.io.BufferedReader;
@@ -26,7 +36,21 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+/**
+ * Control the activity of lonely twitter program
+ *
+ * @author xf4
+ * @version 1.0
+ */
+
 public class LonelyTwitterActivity extends Activity {
+
+	/**
+	 * @param FILEMANE the name of the file that the tweet list are stored
+	 * @param bodyText
+	 * @param oldTweetsList the list of the tweet already record
+	 * @param tweetList the list of the tweet
+	 */
 
 	private static final String FILENAME = "tweet_list.sav";
 	private EditText bodyText;
