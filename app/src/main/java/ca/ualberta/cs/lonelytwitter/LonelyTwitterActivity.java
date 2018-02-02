@@ -41,16 +41,10 @@ import com.google.gson.reflect.TypeToken;
  *
  * @author xf4
  * @version 1.0
+ *
  */
 
 public class LonelyTwitterActivity extends Activity {
-
-	/**
-	 * @param FILEMANE the name of the file that the tweet list are stored
-	 * @param bodyText
-	 * @param oldTweetsList the list of the tweet already record
-	 * @param tweetList the list of the tweet
-	 */
 
 	private static final String FILENAME = "tweet_list.sav";
 	private EditText bodyText;
@@ -71,6 +65,10 @@ public class LonelyTwitterActivity extends Activity {
 		Button clearButton = (Button) findViewById(R.id.clear);
 		oldTweetsList = (ListView) findViewById(R.id.oldTweetsList);
 
+		/**
+		 * clean all record in tweet list when clean button is pushed
+		 */
+
 		clearButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 
@@ -82,6 +80,10 @@ public class LonelyTwitterActivity extends Activity {
 			}
 
 		});
+
+		/**
+		 * create new tweet in tweet list and save it after save button is pushed
+		 */
 
 		saveButton.setOnClickListener(new View.OnClickListener() {
 
@@ -100,6 +102,10 @@ public class LonelyTwitterActivity extends Activity {
 		});
 	}
 
+	/**
+	 * load the tweet we stored in file when the system restarted
+	 */
+
 	@Override
 	protected void onStart() {
 
@@ -114,7 +120,18 @@ public class LonelyTwitterActivity extends Activity {
 
 	}
 
+	/**
+	 * load the tweet from the save file
+	 */
+
 	private void loadFromFile() {
+
+		/**
+		 * Prepare the array list of tweets
+		 *
+		 * @throws RuntimeException
+		 *
+		 */
 
 		try {
 			FileInputStream fis = openFileInput(FILENAME);
@@ -122,8 +139,6 @@ public class LonelyTwitterActivity extends Activity {
 
 			Gson gson = new Gson();
 
-			// Taken from
-			// time
 			Type listType = new TypeToken<ArrayList<NormalTweet>>(){}.getType();
 			tweetList = gson.fromJson(in, listType);
 
@@ -133,7 +148,11 @@ public class LonelyTwitterActivity extends Activity {
 			throw new RuntimeException();
 		}
 	}
-	
+
+	/**
+	 * save the new arrayList of tweet in save file
+	 */
+
 	private void saveInFile() {
 		try {
 			FileOutputStream fos = openFileOutput(FILENAME,
@@ -150,6 +169,10 @@ public class LonelyTwitterActivity extends Activity {
 			throw new RuntimeException();
 		}
 	}
+
+	/**
+	 * Inform the onDestroy() is called
+	 */
 
 	@Override
 	protected void onDestroy() {

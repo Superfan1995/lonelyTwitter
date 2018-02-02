@@ -53,18 +53,14 @@ public abstract class Tweet implements Tweetable {
 
     /**
      * Change the message of tweet to a new message
+     * @param message - the new message of the tweet
+     * @throws TweetTooLongException - is thrown when the message is over 140 characters
      *
+     * @see ImportantTweet
+     * @see NormalTweet
      */
 
     public void setMessage(String message) throws TweetTooLongException{
-
-        /**
-         * @param message - the new message of the tweet
-         * @throws TweetTooLongException - is thrown when the message is over 140 characters
-         *
-         * @see ImportantTweet
-         * @see NormalTweet
-         */
 
         if (message.length() < 140){
             this.message = message;
