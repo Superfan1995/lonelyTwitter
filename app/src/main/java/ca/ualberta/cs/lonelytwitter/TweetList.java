@@ -30,6 +30,10 @@ public class TweetList {
         return tweets.contains(tweet);
     }
 
+    public ArrayList<Tweet> getTweet() {
+        return tweets;
+    }
+
     public Tweet getTweet(int index){
 
         return tweets.get(index);

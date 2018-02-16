@@ -2,6 +2,8 @@ package ca.ualberta.cs.lonelytwitter;
 
 import android.test.ActivityInstrumentationTestCase2;
 
+import java.util.ArrayList;
+
 /**
  * Created by superfan1995 on 2018-02-15.
  */
@@ -74,4 +76,22 @@ public class TweetListTest extends ActivityInstrumentationTestCase2 {
         assertTrue(count == 3);
     }
 
+    public void testGetTweetList() throws IllegalArgumentException {
+
+        TweetList tweets = new TweetList();
+
+        Tweet tweet1 = new normalTweet("tweet1");
+        Tweet tweet2 = new normalTweet("tweet2");
+
+        tweets.add(tweet1);
+        tweets.add(tweet2);
+
+        ArrayList<Tweet> returnList = tweets.getTweet();
+
+        Tweet resultTweet1 = returnList.get(0);
+        Tweet resultTweet2 = returnList.get(1);
+
+        assertTrue(resultTweet1 == tweet1);
+        assertTrue(resultTweet2 == tweet2);
+    }
 }
