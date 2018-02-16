@@ -21,14 +21,21 @@ public class TweetList {
     }
 
     public void delete(Tweet tweet){
+
         tweets.remove(tweet);
     }
 
     public boolean hasTweet(Tweet tweet){
+
         return tweets.contains(tweet);
     }
 
     public Tweet getTweet(int index){
+
         return tweets.get(index);
+    }
+
+    public int getCount() {
+        return tweets.size();
     }
 }
